@@ -48,51 +48,7 @@ import Footer from "../Components/Footer"
    </Fragment>
   )
 }
-function Bigform() {
 
-  return (
-    <Formik
-    initialValues={{name: "",type: '',choose: ''}}
-    validationSchema = {Yup.object({
-           name: Yup.string().required("required"),
-           type:  Yup.string().min(5,'more than 5').required("required"),
-           choose: Yup.string().required('required').oneOf(["remote", "office"]),
-         })}
-    onSubmit={(values) => addJobs(values)} 
-  >
-   <Form>
-    <div className="w-[100%] flex justify-evenly items-center">
-      <div className="flex flex-col ">
-         <Field  id="firstinput" name="name" placeholder="Search Anything ?" className="border-[1px] border-black p-[5px] rounded-[10px] mt-[10px]" />
-         <ErrorMessage  name='name'>{errori => <p className='text-red-500'>{errori}</p>}</ErrorMessage>
-         </div>
-         {/* <div className='mt-[20px] flex flex-col' >
-         <label htmlFor="secondinput" className='text-[20px] '>Job type: </label>
-         <Field  id="secondinput" name="type" className="border-[1px] border-black  p-[5px] rounded-[10px] mt-[10px]" />
-         <ErrorMessage  name='type'>
-          {errori => <p className='text-red-500'>{errori}</p>}
-         </ErrorMessage>
-         </div>
-       <div className='mt-[10px] flex flex-col'>
-       <label htmlFor="SELECT" className='text-[20px] '>Work from ?</label>
-        <Field name="choose" id="SELECT" as="select" className="border-[1px] border-black  p-[5px] py-[10px] rounded-[10px] mt-[10px]" >
-        <option >Work from ?</option>
-         <option value="remote" >remote</option>
-        <option value="office" >office</option>
-        </Field>
-        <ErrorMessage name='choose'>
-         {
-           errorMesigi =>  <p className='text-red-500'>{errorMesigi}</p>
-         }
-        </ErrorMessage>
-        </div>
-         <button type='submit' className='flex justify-center items-center  w-[120px] h-[50px] bg-[#3498db] text-white rounded-[20px] cursor-pointer text-[18px] hover:scale-[1.01] mt-[30px] '><p>submit</p></button> */}
-         </div>
-   </Form>
-
-  </Formik>
-  )
-}
 export async function getServerSideProps() {
       const connect = await MongoClient.connect('mongodb+srv://sbs:sbsmaster@cluster0.09cl0tf.mongodb.net/jobs?retryWrites=true&w=majority');
       const db = connect.db();

@@ -64,7 +64,8 @@ const exactly = await collection.findOne({_id: ObjectId(id)})
         choose: exactly.choose,
         Qualifications: exactly.Qualifications
             }    
-        }
+        },
+        revalidate: 1
     }
 }
 export default jobsId
